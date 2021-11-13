@@ -1,15 +1,23 @@
-resource "aws_instance" "Web" {
-  ami           = "ami-0e0bf4b3a0c0e0adc"
-  instance_type = "t2.micro"
+resource "aws_instance" "web" {
+  ami               = "ami-0e0bf4b3a0c0e0adc"
+  availability_zone = "us-west-1b"
+  instance_type     = "t2.micro"
+
   tags = {
-    Name = "Web"
+    Name = "Hello"
   }
 }
 
-resource "aws_ebs_volume" "example1" {
+
+resource "aws_ebs_volume" "example" {
   availability_zone = "us-west-1b"
-  size              = 40
+  size              = 20
   tags = {
-    Name = "newvol"
-  }
-} 
+     Name = "demovol"
+   }
+}
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.example.id
+  instance_id = aws_instance.web.id
+}
