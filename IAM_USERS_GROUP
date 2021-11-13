@@ -1,0 +1,29 @@
+resource "aws_iam_group_membership" "team" {
+  name = "tf-testing-group-membership"
+
+  users = [
+    aws_iam_user.user_one.name,
+    aws_iam_user.user_two.name,
+    aws_iam_user.user_three.name,
+  ]
+
+  group = aws_iam_group.Trainer.name
+}
+
+
+resource "aws_iam_user" "user_one" {
+	   	name = "Harry"
+}
+
+resource "aws_iam_user" "user_two" {
+	  	name = "Sam"
+}
+
+resource "aws_iam_user" "user_three" {
+	  	name = "Tom"
+}
+
+resource "aws_iam_group" "Trainer" {
+  name = "Trainer"
+  #path = "/users/"
+}
