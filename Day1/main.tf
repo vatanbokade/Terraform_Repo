@@ -22,37 +22,37 @@ resource "aws_volume_attachment" "ebs_att" {
   instance_id = "aws_instance.Xenn.id"
 }
 
-# resource "aws_iam_group_membership" "team" {
-#   name = "tf-testing-group-membership"
+ resource "aws_iam_group_membership" "team" {
+   name = "tf-testing-group-membership"
 
-#   users = [
-#     "aws_iam_user.user_one.name",
-#     "aws_iam_user.user_two.name",
-#     "aws_iam_user.user_three.name",
-#   ]
+   users = [
+     "aws_iam_user.user_one.name",
+     "aws_iam_user.user_two.name",
+     "aws_iam_user.user_three.name",
+   ]
 
-#   group = "aws_iam_group.group.name"
-# }
+   group = "aws_iam_group.group.name"
+ }
 
-# resource "aws_iam_user" "user_one" {
-#     name = var.name[0]
-# }
+ resource "aws_iam_user" "user_one" {
+     name = var.name[0]
+ }
 
-# resource "aws_iam_user" "user_two" {
-# 	  	name = var.name[1]
-# }
+ resource "aws_iam_user" "user_two" {
+ 	  	name = var.name[1]
+ }
 
-# resource "aws_iam_user" "user_three" {
-# 	  	name = var.name[2]
-# }
+ resource "aws_iam_user" "user_three" {
+ 	  	name = var.name[2]
+ }
 
-# resource "aws_iam_group" "group" {
-#   name = var.gp_name
-#   #path = "/users/"
-# }
+ resource "aws_iam_group" "group" {
+   name = var.gp_name
+   #path = "/users/"
+ }
 
 
-# resource "aws_eip" "lb" {
-#   instance = "aws_instance.Xenn.id"
-#   vpc      = true
-# }
+ resource "aws_eip" "lb" {
+   instance = "aws_instance.Xenn.id"
+   vpc      = true
+ }
