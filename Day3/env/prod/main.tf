@@ -4,7 +4,7 @@ provider "aws" {
 
   module "auto_scaling" {
   source = "../../module/auto_scaling/"
-  name = "sales-app-dev"
+  name = "sales-app-prod"
   image_id = "ami-0dd0ccab7e2801812"
   instance_type = "t2.micro"
   key_name = "id_rsa"       
@@ -19,7 +19,7 @@ provider "aws" {
  
 module "alb" {
   source = "../../module/alb"
-  name = "sales-app-dev"
+  name = "sales-app-prod"
   vpc_id = "vpc-eb8ce380" 
   security_groups = ["sg-0b14d541"]
   subnets = ["subnet-ac69a4d1","subnet-5567f03e"]
